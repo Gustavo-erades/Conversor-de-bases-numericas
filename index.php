@@ -20,40 +20,37 @@
     include_once("./funções/DecToHex.php");
     include_once("./funções/DecToOct..php");
     $decimal=null;
-    $num_binario=null;
-    $num_hex=null;
-    $num_oct=null;
+    $binario=null;
+    $hexadecimal=null;
+    $octal=null;
+    $display='none';
     if(isset($_GET['submit'])){
         $decimal=$_GET['decimal'];
-        $num_binario=decToBin($decimal);
-        $num_hex=decToHex($decimal);
-        $num_oct=decToOct($decimal);
-        $selected=$_GET['baseNumerica'];
-        echo $selected;
+        $binario=decToBin($decimal);
+        $hexadecimal=decToHex($decimal);
+        $octal=decToOct($decimal);
+    }
+    if($_GET['submit']!=null && $_GET['decimal']!=null){
+        $display='block';
     }
 ?>
 <body>
     <div id="caixaFora">
         <div class="container">
+            <h1>Conversor de base numérica</h1>
             <form action="<?php $_SERVER['PHP_SELF'] ?>" mehod="get" class="form-group">
-                <div class="row">
-                  <div class="col-6">
+                <div>
                     <label for="decimal">Digite o número decimal:</label>
                     <input type="number" min=0 id="decimal" name="decimal" value="<?= $decimal ?>" class="form-control">
-                  </div>
-                  <div class="col-6">
-                    <label for="baseNumerica">Base numérica desejada:</label>
-                    <select name="baseNumerica" id="baseNumerica">
-                        <option value="base_binario" name="binaria">Binaria</option>
-                        <option value="base_hexadecimal" name="hexadecimal">Hexadecimal</option>
-                        <option value="base_octal" name="octal">Octal</option>
-                    </select>
-                  </div>
                 </div>
                 <input type="submit" value="Converter" name="submit" class="btn btn-primary">
-                <div>
-                    <h1><?= $num_binario ?></h1>
-                    <h4>x na base xyz</h4>
+                <div style="display:<?= $display ?>">
+                    <label for="bin">Base binária:</label>
+                    <input value="<?= $binario ?>" disabled class="form-control" id="bin">
+                    <label for="hex">Base Hexadecimal:</label>
+                    <input value="<?= $hexadecimal ?>" disabled class="form-control" id="hex">
+                    <label for="oct">Base Octal:</label>
+                    <input value="<?= $octal ?>" disabled class="form-control" id="oct">
                 </div>
             </form>
         </div>

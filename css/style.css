@@ -4,12 +4,10 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    background-color:yellow;
-    border: 1px solid green;
 }
 .form-group{
-    border:1px solid red;
-    background-color: aqua;
     border-radius: 20px;
     padding: 10px;
+    border: 1px solid #4f4f4f;
+    background-color: rgb(245, 245, 245);
 }
