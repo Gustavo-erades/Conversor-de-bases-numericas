@@ -16,49 +16,27 @@
     <title>Converter Decimal</title>
     <style>
         body{
-            background-color: aliceblue;
-        }
-        .container{
-            box-shadow: 2px 2px 4px rgb(0,0,0,0.4);
+            background-color: rgba(240, 248, 255, 0.735);
         }
     </style>
 </head>
 <body>
-    <?php
-        include_once("./funções/DecToBin.php");
-        include_once("./funções/DecToHex.php");
-        include_once("./funções/DecToOct..php");
-        $decimal=null;
-        $binario=null;
-        $hexadecimal=null;
-        $octal=null;
-        $display='none';
-        if(isset($_GET['submit'])){
-            $decimal=$_GET['decimal'];
-            $binario=decToBin($decimal);
-            $hexadecimal=decToHex($decimal);
-            $octal=decToOct($decimal);
-        }
-        if(isset($_GET['submit'])!=null && $_GET['decimal']!=null){
-            $display='block';
-        }
-    ?>
     <div id="caixaFora">
         <div class="container">
             <h1 id="titulo">Conversor de base numérica</h1>
             <form action="" mehod="get" class="form-group">
                 <div>
                     <label for="decimal">Digite o número decimal:</label>
-                    <input type="number" min=0 id="decimal" name="decimal"  class="form-control" value="<?=$decimal?>">
+                    <input type="number" min=0 id="decimal" name="decimal"  class="form-control">
                 </div>
                 <input type="submit" value="Converter" name="submit" class="btn">
-                <div style="<?='display:'. $display.';' ?>">
+                <div>
                     <label for="bin">Base binária:</label>
-                    <input  disabled class="form-control" id="bin" value="<?=$binario?>">
+                    <input  disabled class="form-control" id="bin">
                     <label for="hex">Base Hexadecimal:</label>
-                    <input  disabled class="form-control" id="hex" value="<?=$hexadecimal?>">
+                    <input  disabled class="form-control" id="hex">
                     <label for="oct">Base Octal:</label>
-                    <input  disabled class="form-control" id="oct" value="<?=$octal?>">
+                    <input  disabled class="form-control" id="oct">
                 </div>
             </form>
         </div>
