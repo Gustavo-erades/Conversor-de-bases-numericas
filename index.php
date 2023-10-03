@@ -30,7 +30,7 @@
         $hexadecimal=decToHex($decimal);
         $octal=decToOct($decimal);
     }
-    if($_GET['submit']!=null && $_GET['decimal']!=null){
+    if(isset($_GET['submit'])!=null && $_GET['decimal']!=null){
         $display='block';
     }
 ?>
