@@ -1,3 +1,4 @@
+
 <?php
     /**
      * Função para conversão do número decimal para número binário.
